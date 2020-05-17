@@ -7,17 +7,15 @@ import android.widget.Button
 import android.widget.TextView
 
 import com.test.calculator.R
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-    private var textview: TextView? = null
 
-    internal var cal = Calculator()
+    private var cal = Calculator()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        textview = findViewById(R.id.textView)
 
         val button0 = findViewById<View>(R.id.button0) as Button
         val button1 = findViewById<View>(R.id.button1) as Button
@@ -40,43 +38,43 @@ class MainActivity : AppCompatActivity() {
 
         button0.setOnClickListener {
             cal.pushZeo()
-            textview!!.text = cal.display()
+            updateText()
         }
         button1.setOnClickListener {
             cal.pushOne()
-            textview!!.text = cal.display()
+            updateText()
         }
         button2.setOnClickListener {
             cal.pushTwo()
-            textview!!.text = cal.display()
+            updateText()
         }
         button3.setOnClickListener {
             cal.pushThree()
-            textview!!.text = cal.display()
+            updateText()
         }
         button4.setOnClickListener {
             cal.pushFour()
-            textview!!.text = cal.display()
+            updateText()
         }
         button5.setOnClickListener {
             cal.pushFive()
-            textview!!.text = cal.display()
+            updateText()
         }
         button6.setOnClickListener {
             cal.pushSix()
-            textview!!.text = cal.display()
+            updateText()
         }
         button7.setOnClickListener {
             cal.pushSeven()
-            textview!!.text = cal.display()
+            updateText()
         }
         button8.setOnClickListener {
             cal.pushEight()
-            textview!!.text = cal.display()
+            updateText()
         }
         button9.setOnClickListener {
             cal.pushNine()
-            textview!!.text = cal.display()
+            updateText()
         }
         add.setOnClickListener { cal.pushAdd() }
         sub.setOnClickListener { cal.pushSub() }
@@ -84,19 +82,23 @@ class MainActivity : AppCompatActivity() {
         div.setOnClickListener { cal.pushDiv() }
         equ.setOnClickListener {
             cal.pushEqu()
-            textview!!.text = cal.display()
+            updateText()
         }
         ac.setOnClickListener {
             cal.pushAc()
-            textview!!.text = cal.display()
+            updateText()
         }
         ac.setOnClickListener {
             cal.pushAc()
-            textview!!.text = cal.display()
+            updateText()
         }
         dot.setOnClickListener {
             cal.pushDot()
-            textview!!.text = cal.display()
+            updateText()
         }
+    }
+    
+    private fun updateText() {
+        textView.text = cal.display()
     }
 }

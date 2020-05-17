@@ -7,67 +7,65 @@ class Calculator {
 
     private var number = ""
     private var result = "0"
-    private var ope = ""
+    private var ope = Operation.NONE
+
+    private enum class Operation {
+        ADD,
+        SUBTRACTION,
+        MULTIPLICATION,
+        DIVISION,
+        NONE
+    }
 
     fun display(): String {
         return if (number.isEmpty()) result else number
     }
 
     fun pushAdd() {
-        pushEqu()
-        ope = "+"
+        pushOperation(Operation.ADD)
     }
 
     fun pushSub() {
-        pushEqu()
-        ope = "-"
+        pushOperation(Operation.SUBTRACTION)
     }
 
     fun pushMul() {
-        pushEqu()
-        ope = "*"
+        pushOperation(Operation.MULTIPLICATION)
     }
 
     fun pushDiv() {
-        pushEqu()
-        ope = "/"
+        pushOperation(Operation.DIVISION)
     }
-
 
     fun pushEqu() {
         var n = Double.parseDouble(result)
         if (number != "") {
-            if (ope == "+") {
+            if (ope == Operation.ADD) {
                 n += Double.parseDouble(number)
-            } else if (ope == "-") {
+            } else if (ope == Operation.SUBTRACTION) {
                 n -= Double.parseDouble(number)
-            } else if (ope == "*") {
+            } else if (ope == Operation.MULTIPLICATION) {
                 n *= Double.parseDouble(number)
-            } else if (ope == "/") {
+            } else if (ope == Operation.DIVISION) {
                 n /= Double.parseDouble(number)
             } else {
                 n = Double.parseDouble(number)
             }
         }
 
-
-
         if (n == n.toInt().toDouble()) {
             result = String.format("%d", n.toInt())
-
         } else {
             result = String.format("%s", n)
-
         }
         number = ""
-        ope = ""
-
+        ope = Operation.NONE
     }
 
     fun pushAc() {
         number = ""
         result = "0"
-        ope = ""
+        ope = Operation.NONE
     }
 
     fun pushDot() {
@@ -89,38 +87,47 @@ class Calculator {
     }
 
     fun pushOne() {
-        number = number + "1"
+        pushNumber(1)
     }
 
     fun pushTwo() {
-        number = number + "2"
+        pushNumber(2)
     }
 
     fun pushThree() {
-        number = number + "3"
+       pushNumber(3)
     }
 
     fun pushFour() {
-        number = number + "4"
+        pushNumber(4)
     }
 
     fun pushFive() {
-        number = number + "5"
+        pushNumber(5)
     }
 
     fun pushSix() {
-        number = number + "6"
+        pushNumber(6)
     }
 
     fun pushSeven() {
-        number = number + "7"
+        pushNumber(7)
     }
 
     fun pushEight() {
-        number = number + "8"
+        pushNumber(8)
     }
 
     fun pushNine() {
-        number = number + "9"
+        pushNumber(9)
+    }
+
+    private fun pushNumber(number: Int) {
+        this.number += number.toString()
+    }
+
+    private fun pushOperation(ope: Operation) {
+        pushEqu()
+        this.ope = ope
     }
 }

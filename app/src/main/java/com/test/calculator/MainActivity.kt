@@ -17,25 +17,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val button0 = findViewById<View>(R.id.button0) as Button
-        val button1 = findViewById<View>(R.id.button1) as Button
-        val button2 = findViewById<View>(R.id.button2) as Button
-        val button3 = findViewById<View>(R.id.button3) as Button
-        val button4 = findViewById<View>(R.id.button4) as Button
-        val button5 = findViewById<View>(R.id.button5) as Button
-        val button6 = findViewById<View>(R.id.button6) as Button
-        val button7 = findViewById<View>(R.id.button7) as Button
-        val button8 = findViewById<View>(R.id.button8) as Button
-        val button9 = findViewById<View>(R.id.button9) as Button
-
-        val equ = findViewById<View>(R.id.equ) as Button
-        val div = findViewById<View>(R.id.div) as Button
-        val mul = findViewById<View>(R.id.mul) as Button
-        val sub = findViewById<View>(R.id.sub) as Button
-        val add = findViewById<View>(R.id.add) as Button
-        val ac = findViewById<View>(R.id.ac) as Button
-        val dot = findViewById<View>(R.id.dot) as Button
-
         button0.setOnClickListener {
             cal.pushZeo()
             updateText()

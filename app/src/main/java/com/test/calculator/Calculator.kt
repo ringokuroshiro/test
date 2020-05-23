@@ -38,26 +38,22 @@ class Calculator {
     }
 
     fun pushEqu() {
-        var n = Double.parseDouble(result)
-        if (number != "") {
-            if (ope == Operation.ADD) {
-                n += Double.parseDouble(number)
-            } else if (ope == Operation.SUBTRACTION) {
-                n -= Double.parseDouble(number)
-            } else if (ope == Operation.MULTIPLICATION) {
-                n *= Double.parseDouble(number)
-            } else if (ope == Operation.DIVISION) {
-                n /= Double.parseDouble(number)
+        if (number.isNotBlank()) {
+            val n = when (ope) {
+                Operation.ADD -> Double.parseDouble(result) + Double.parseDouble(number)
+                Operation.SUBTRACTION -> Double.parseDouble(result) - Double.parseDouble(number)
+                Operation.MULTIPLICATION -> Double.parseDouble(result) * Double.parseDouble(number)
+                Operation.DIVISION -> Double.parseDouble(result) / Double.parseDouble(number)
+                else -> Double.parseDouble(number)
+            }
+
+            result = if (n == n.toInt().toDouble()) {
+                String.format("%d", n.toInt())
             } else {
-                n = Double.parseDouble(number)
+                String.format("%s", n)
             }
         }
 
-        if (n == n.toInt().toDouble()) {
-            result = String.format("%d", n.toInt())
-        } else {
-            result = String.format("%s", n)
-        }
         number = ""
         ope = Operation.NONE
     }

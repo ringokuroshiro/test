@@ -259,9 +259,10 @@ class CalculatorTest {
 
     @Test
     fun pushDotDotTest() {
+        cal.pushOne()
         cal.pushDot()
         cal.pushDot()
         assertEquals(
-                "0.", cal.display())
+                "1.", cal.display())
     }
 }

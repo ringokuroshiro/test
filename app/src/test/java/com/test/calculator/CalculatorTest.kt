@@ -140,6 +140,7 @@ class CalculatorTest {
 
     @Test
     fun clear() {
+        cal.pushOne()
         cal.pushAc()
         assertEquals(
                 "0", cal.display())
@@ -247,14 +248,21 @@ class CalculatorTest {
     }
 
     @Test
-    fun com5() {
+    fun pushDotEqualTest() {
         cal.pushDot()
         cal.pushDot()
         cal.pushDot()
-        assertEquals(
-                "0.", cal.display())
         cal.pushEqu()
         assertEquals(
                 "0", cal.display())
+    }
+
+    @Test
+    fun pushDotDotTest() {
+        cal.pushOne()
+        cal.pushDot()
+        cal.pushDot()
+        assertEquals(
+                "1.", cal.display())
     }
 }

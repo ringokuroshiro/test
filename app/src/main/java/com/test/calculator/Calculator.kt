@@ -38,26 +38,24 @@ class Calculator {
     }
 
     fun pushEqu() {
-        var n = Double.parseDouble(result)
-        if (number != "") {
-            if (ope == Operation.ADD) {
-                n += Double.parseDouble(number)
-            } else if (ope == Operation.SUBTRACTION) {
-                n -= Double.parseDouble(number)
-            } else if (ope == Operation.MULTIPLICATION) {
-                n *= Double.parseDouble(number)
-            } else if (ope == Operation.DIVISION) {
-                n /= Double.parseDouble(number)
+        if (number.isNotBlank()) {
+            val resultDouble = Double.parseDouble(result)
+            val numberDouble = Double.parseDouble(number)
+            val n = when (ope) {
+                Operation.ADD -> resultDouble + numberDouble
+                Operation.SUBTRACTION -> resultDouble - numberDouble
+                Operation.MULTIPLICATION -> resultDouble * numberDouble
+                Operation.DIVISION -> resultDouble / numberDouble
+                else -> numberDouble
+            }
+
+            result = if (n == n.toInt().toDouble()) {
+                String.format("%d", n.toInt())
             } else {
-                n = Double.parseDouble(number)
+                String.format("%s", n)
             }
         }
 
-        if (n == n.toInt().toDouble()) {
-            result = String.format("%d", n.toInt())
-        } else {
-            result = String.format("%s", n)
-        }
         number = ""
         ope = Operation.NONE
     }
@@ -69,12 +67,12 @@ class Calculator {
     }
 
     fun pushDot() {
-        if (number == "") {
-            number = "0."
-        } else if (number == "0.") {
-
+        if (number != "") {
+            if (!number.contains(".")) {
+                number = "$number."
+            }
         } else {
-            number = "$number."
+            number = "0."
         }
     }
 

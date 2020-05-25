@@ -77,11 +77,8 @@ class Calculator {
     }
 
     fun pushZeo() {
-        if (number == "0" || number == "") {
-
-        } else {
-            number = number + "0"
-        }
+        if (number == "0" || number == "") return
+        number += "0"
     }
 
     fun pushOne() {

@@ -5,8 +5,7 @@ import org.junit.Assert.*
 
 class CalculatorTest {
 
-
-    internal var cal = Calculator()
+    private val cal = Calculator()
 
     @Test
     fun zero() {
@@ -79,7 +78,7 @@ class CalculatorTest {
     }
 
     @Test
-    fun sanzero() {
+    fun threeZero() {
         cal.pushThree()
         cal.pushZeo()
         assertEquals(
@@ -87,7 +86,7 @@ class CalculatorTest {
     }
 
     @Test
-    fun sanzerozeroone() {
+    fun sanZeroZeroOne() {
         cal.pushThree()
         cal.pushZeo()
         cal.pushZeo()
@@ -99,41 +98,41 @@ class CalculatorTest {
     @Test
     fun add() {
         cal.pushThree()
-        cal.pushAdd()
+        cal.pushAddition()
         cal.pushOne()
-        cal.pushEqu()
+        cal.pushEqual()
         assertEquals(
                 "4", cal.display())
     }
 
     @Test
-    fun sub() {
+    fun subtraction() {
         cal.pushThree()
-        cal.pushSub()
+        cal.pushSubtraction()
         cal.pushOne()
-        cal.pushEqu()
+        cal.pushEqual()
         assertEquals(
                 "2", cal.display())
     }
 
     @Test
-    fun div() {
+    fun division() {
         cal.pushNine()
-        cal.pushDiv()
+        cal.pushDivision()
         cal.pushThree()
-        cal.pushEqu()
+        cal.pushEqual()
         assertEquals(
                 "3", cal.display())
     }
 
     @Test
-    fun mul() {
+    fun multiplication() {
         cal.pushThree()
         cal.pushZeo()
         cal.pushZeo()
-        cal.pushMul()
+        cal.pushMultiplication()
         cal.pushTwo()
-        cal.pushEqu()
+        cal.pushEqual()
         assertEquals(
                 "600", cal.display())
     }
@@ -164,55 +163,55 @@ class CalculatorTest {
     }
 
     @Test
-    fun dotcal() {
+    fun dotCalculate() {
         cal.pushOne()
         cal.pushDot()
         cal.pushSeven()
-        cal.pushAdd()
+        cal.pushAddition()
         cal.pushOne()
         cal.pushDot()
         cal.pushFive()
-        cal.pushEqu()
+        cal.pushEqual()
         assertEquals(
                 "3.2", cal.display())
     }
 
     @Test
-    fun com() {
+    fun calculateTest1() {
         cal.pushThree()
         cal.pushZeo()
         cal.pushZeo()
-        cal.pushMul()
+        cal.pushMultiplication()
         cal.pushTwo()
-        cal.pushEqu()
+        cal.pushEqual()
         assertEquals(
                 "600", cal.display())
     }
 
     @Test
-    fun com1() {
+    fun calculateTest2() {
         cal.pushThree()
         cal.pushZeo()
         cal.pushZeo()
-        cal.pushMul()
+        cal.pushMultiplication()
         cal.pushTwo()
-        cal.pushAdd()
+        cal.pushAddition()
         cal.pushFive()
         assertEquals(
                 "5", cal.display())
-        cal.pushEqu()
+        cal.pushEqual()
         assertEquals(
                 "605", cal.display())
     }
 
     @Test
-    fun com2() {
+    fun calculateTest3() {
         cal.pushThree()
         cal.pushZeo()
         cal.pushZeo()
-        cal.pushMul()
+        cal.pushMultiplication()
         cal.pushTwo()
-        cal.pushAdd()
+        cal.pushAddition()
         assertEquals(
                 "600", cal.display())
         cal.pushFive()
@@ -220,25 +219,24 @@ class CalculatorTest {
                 "5", cal.display())
     }
 
-
     @Test
-    fun com3() {
+    fun calculateTest4() {
         cal.pushThree()
         cal.pushZeo()
         cal.pushZeo()
-        cal.pushMul()
+        cal.pushMultiplication()
         cal.pushAc()
         cal.pushTwo()
-        cal.pushAdd()
+        cal.pushAddition()
         assertEquals(
                 "2", cal.display())
-        cal.pushEqu()
+        cal.pushEqual()
         assertEquals(
                 "2", cal.display())
     }
 
     @Test
-    fun com4() {
+    fun calculateTest5() {
         cal.pushZeo()
         cal.pushZeo()
         cal.pushZeo()
@@ -252,7 +250,7 @@ class CalculatorTest {
         cal.pushDot()
         cal.pushDot()
         cal.pushDot()
-        cal.pushEqu()
+        cal.pushEqual()
         assertEquals(
                 "0", cal.display())
     }

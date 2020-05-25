@@ -10,7 +10,7 @@ class Calculator {
     private var ope = Operation.NONE
 
     private enum class Operation {
-        ADD,
+        ADDITION,
         SUBTRACTION,
         MULTIPLICATION,
         DIVISION,
@@ -21,28 +21,28 @@ class Calculator {
         return if (number.isEmpty()) result else number
     }
 
-    fun pushAdd() {
-        pushOperation(Operation.ADD)
+    fun pushAddition() {
+        pushOperation(Operation.ADDITION)
     }
 
-    fun pushSub() {
+    fun pushSubtraction() {
         pushOperation(Operation.SUBTRACTION)
     }
 
-    fun pushMul() {
+    fun pushMultiplication() {
         pushOperation(Operation.MULTIPLICATION)
     }
 
-    fun pushDiv() {
+    fun pushDivision() {
         pushOperation(Operation.DIVISION)
     }
 
-    fun pushEqu() {
+    fun pushEqual() {
         if (number.isNotBlank()) {
             val resultDouble = Double.parseDouble(result)
             val numberDouble = Double.parseDouble(number)
             val n = when (ope) {
-                Operation.ADD -> resultDouble + numberDouble
+                Operation.ADDITION -> resultDouble + numberDouble
                 Operation.SUBTRACTION -> resultDouble - numberDouble
                 Operation.MULTIPLICATION -> resultDouble * numberDouble
                 Operation.DIVISION -> resultDouble / numberDouble
@@ -125,7 +125,7 @@ class Calculator {
     }
 
     private fun pushOperation(ope: Operation) {
-        pushEqu()
+        pushEqual()
         this.ope = ope
     }
 }

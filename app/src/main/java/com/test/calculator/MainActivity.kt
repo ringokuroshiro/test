@@ -2,11 +2,6 @@ package com.test.calculator
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.Button
-import android.widget.TextView
-
-import com.test.calculator.R
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -57,12 +52,12 @@ class MainActivity : AppCompatActivity() {
             cal.pushNine()
             updateText()
         }
-        add.setOnClickListener { cal.pushAdd() }
-        sub.setOnClickListener { cal.pushSub() }
-        mul.setOnClickListener { cal.pushMul() }
-        div.setOnClickListener { cal.pushDiv() }
+        add.setOnClickListener { cal.pushAddition() }
+        sub.setOnClickListener { cal.pushSubtraction() }
+        mul.setOnClickListener { cal.pushMultiplication() }
+        div.setOnClickListener { cal.pushDivision() }
         equ.setOnClickListener {
-            cal.pushEqu()
+            cal.pushEqual()
             updateText()
         }
         ac.setOnClickListener {
